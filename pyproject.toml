@@ -16,5 +16,5 @@ dependencies = []
 hash-avalanche = "hash_avalanche.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 include = ["hash_avalanche*"]
