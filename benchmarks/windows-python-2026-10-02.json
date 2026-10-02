@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "processor": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+  "seed": 20261002,
+  "payload_bytes": 32,
+  "repeats": 3,
+  "timing_scope": "untraced in-process experiment plus aggregate construction; excludes subprocess startup",
+  "memory_scope": "separate tracemalloc run: Python allocations only, excludes native OpenSSL allocations and total process RSS",
+  "baseline": "retained distances list then tuple, histogram and raw moments; not a rerun of the historical school experiment",
+  "source_sha256": "b14a016ce1294ec1d821b4d1f536c4c833cbc5dd0de8b2a328ea08af8502afe2",
+  "records": [
+    {
+      "algorithm": "md5",
+      "trials": 1000,
+      "mode": "streaming",
+      "seconds": [
+        0.0130559999961406,
+        0.012238099938258529,
+        0.009437500033527613
+      ],
+      "median_seconds": 0.012238099938258529,
+      "traced_peak_bytes": 15900,
+      "result_sha256": "4746314e1ec14d516e9ac8df7a686f71f9202b86bd88136622c7e9555802f991"
+    },
+    {
+      "algorithm": "md5",
+      "trials": 1000,
+      "mode": "retained",
+      "seconds": [
+        0.01623189984820783,
+        0.017491099890321493,
+        0.01693289983086288
+      ],
+      "median_seconds": 0.01693289983086288,
+      "traced_peak_bytes": 32506,
+      "result_sha256": "4746314e1ec14d516e9ac8df7a686f71f9202b86bd88136622c7e9555802f991"
+    },
+    {
+      "algorithm": "md5",
+      "trials": 10000,
+      "mode": "streaming",
+      "seconds": [
+        0.2475074001122266,
+        0.19962659990414977,
+        0.17374729993753135
+      ],
+      "median_seconds": 0.19962659990414977,
+      "traced_peak_bytes": 16412,
+      "result_sha256": "433510edfea7a697e57de08d40c487247820a59f961209a7fab843052ceabe34"
+    },
+    {
+      "algorithm": "md5",
+      "trials": 10000,
+      "mode": "retained",
+      "seconds": [
+        0.1744047999382019,
+        0.1637919000349939,
+        0.14505779999308288
+      ],
+      "median_seconds": 0.1637919000349939,
+      "traced_peak_bytes": 183530,
+      "result_sha256": "433510edfea7a697e57de08d40c487247820a59f961209a7fab843052ceabe34"
+    },
+    {
+      "algorithm": "md5",
+      "trials": 100000,
+      "mode": "streaming",
+      "seconds": [
+        1.551317600067705,
+        1.5921422999817878,
+        1.6106212998274714
+      ],
+      "median_seconds": 1.5921422999817878,
+      "traced_peak_bytes": 16828,
+      "result_sha256": "ab5a8fb2dcc229389976239d98e003b6b02f4e09babb993f3c1cfbb48eb198b2"
+    },
+    {
+      "algorithm": "md5",
+      "trials": 100000,
+      "mode": "retained",
+      "seconds": [
+        1.6763404998928308,
+        1.5728885000571609,
+        2.0458700999151915
+      ],
+      "median_seconds": 1.6763404998928308,
+      "traced_peak_bytes": 1619754,
+      "result_sha256": "ab5a8fb2dcc229389976239d98e003b6b02f4e09babb993f3c1cfbb48eb198b2"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 1000,
+      "mode": "streaming",
+      "seconds": [
+        0.02187180006876588,
+        0.01599369989708066,
+        0.020797800039872527
+      ],
+      "median_seconds": 0.020797800039872527,
+      "traced_peak_bytes": 17980,
+      "result_sha256": "e290af48ae772b4df40d40876aa96a9fae3ae74d028eacf526ce443d482e12bb"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 1000,
+      "mode": "retained",
+      "seconds": [
+        0.013563400134444237,
+        0.013279699953272939,
+        0.013866499997675419
+      ],
+      "median_seconds": 0.013563400134444237,
+      "traced_peak_bytes": 34698,
+      "result_sha256": "e290af48ae772b4df40d40876aa96a9fae3ae74d028eacf526ce443d482e12bb"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 10000,
+      "mode": "streaming",
+      "seconds": [
+        0.14546180004253983,
+        0.1422079000622034,
+        0.1901773998979479
+      ],
+      "median_seconds": 0.14546180004253983,
+      "traced_peak_bytes": 18588,
+      "result_sha256": "ff20cfaae80ab801f1c99eb8e1fd9c91f8981098f47284abaca7da89f0cd911b"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 10000,
+      "mode": "retained",
+      "seconds": [
+        0.14297969988547266,
+        0.14804950007237494,
+        0.12826270004734397
+      ],
+      "median_seconds": 0.14297969988547266,
+      "traced_peak_bytes": 183626,
+      "result_sha256": "ff20cfaae80ab801f1c99eb8e1fd9c91f8981098f47284abaca7da89f0cd911b"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 100000,
+      "mode": "streaming",
+      "seconds": [
+        1.3988215997815132,
+        1.4149792999960482,
+        1.9554836000315845
+      ],
+      "median_seconds": 1.4149792999960482,
+      "traced_peak_bytes": 19232,
+      "result_sha256": "afba9aadf0e6094ae04ad8505a32d787a0ea6592440622eefc76c9bd1de00f5a"
+    },
+    {
+      "algorithm": "sha256",
+      "trials": 100000,
+      "mode": "retained",
+      "seconds": [
+        1.654940500156954,
+        1.4152488000690937,
+        1.6530255998950452
+      ],
+      "median_seconds": 1.6530255998950452,
+      "traced_peak_bytes": 1620074,
+      "result_sha256": "afba9aadf0e6094ae04ad8505a32d787a0ea6592440622eefc76c9bd1de00f5a"
+    }
+  ]
+}
