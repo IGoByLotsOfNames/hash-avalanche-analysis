@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from .experiment import run_experiment
+from .experiment import replay_report, run_experiment
 
 
 def main() -> None:
@@ -14,26 +14,24 @@ def main() -> None:
     parser.add_argument("--payload-bytes", type=int, default=32)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--replay", type=Path, help="Replay and verify a schema-v2 report; uses its configuration")
     args = parser.parse_args()
 
-    result = run_experiment(
-        args.algorithm,
-        trials=args.trials,
-        payload_bytes=args.payload_bytes,
-        seed=args.seed,
-    )
-    report = {
-        "algorithm": result.algorithm,
-        "trials": result.trials,
-        "digest_bits": result.digest_bits,
-        "normalized_mean": result.normalized_mean,
-        "normalized_standard_deviation": result.normalized_standard_deviation,
-        "distribution": result.distribution,
-    }
-    content = json.dumps(report, indent=2)
+    try:
+        if args.replay:
+            result = replay_report(json.loads(args.replay.read_text(encoding="utf-8")))
+        else:
+            result = run_experiment(args.algorithm, trials=args.trials,
+                                    payload_bytes=args.payload_bytes, seed=args.seed)
+    except (ValueError, OSError) as exc:
+        parser.error(str(exc))
+    content = json.dumps(result.to_report(), indent=2, allow_nan=False)
     if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(content, encoding="utf-8")
+        try:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(content, encoding="utf-8")
+        except OSError as exc:
+            parser.error(f"Cannot write report: {exc}")
     print(content)
 
 

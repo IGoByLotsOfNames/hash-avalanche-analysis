@@ -1,4 +1,4 @@
-from .experiment import ExperimentResult, flip_one_bit, hamming_distance, run_experiment
+from .experiment import DistanceAccumulator, ExperimentResult, flip_one_bit, hamming_distance, replay_report, run_experiment
 
-__all__ = ["ExperimentResult", "flip_one_bit", "hamming_distance", "run_experiment"]
+__all__ = ["DistanceAccumulator", "ExperimentResult", "flip_one_bit", "hamming_distance", "replay_report", "run_experiment"]
 
