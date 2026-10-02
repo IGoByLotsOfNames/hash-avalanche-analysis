@@ -24,7 +24,7 @@ This grew from my earlier investigation, which ran up to 10 million trials and p
 
 ## Inside one trial
 
-![Experiment flow: sample bytes with a local seeded PRNG, flip exactly one byte-level input bit, hash both messages, count changed digest bits, update a fixed-size histogram and integer moments, then save a report that can be replayed.](docs/visuals/experiment-flow.svg)
+![Experiment flow: sample bytes with a local seeded PRNG, flip exactly one byte-level input bit, hash both messages, count changed digest bits, update a fixed-size histogram and integer moments, then save a report that can be replayed.](docs/visuals/experiment-flow.png)
 
 The important invariant is **one changed bit in the actual bytes passed to the hash function**. The histogram contains `B + 1` possible distances for a `B`-bit digest: 129 bins for MD5 or 257 for SHA-256. Reports preserve the complete distribution and raw moments, while discarding individual trial order.
 
@@ -59,7 +59,7 @@ Version 2 removes the old `result.distances` tuple. Use `result.distribution` or
 
 Each row below is a **100,000-trial**, 32-byte-payload run with seed `20261002` on Python 3.12.14. These are observations from the maintained implementation.
 
-![Two density plots compare recorded normalized Hamming distances with an independent-output-bit binomial reference. MD5 has mean 0.500238 and standard deviation 0.044395; SHA-256 has mean 0.500109 and standard deviation 0.031239. Both centre near one half, with the longer SHA-256 digest producing the expected narrower normalized spread.](docs/visuals/normalized-distributions.svg)
+![Two density plots compare recorded normalized Hamming distances with an independent-output-bit binomial reference. MD5 has mean 0.500238 and standard deviation 0.044395; SHA-256 has mean 0.500109 and standard deviation 0.031239. Both centre near one half, with the longer SHA-256 digest producing the expected narrower normalized spread.](docs/visuals/normalized-distributions.png)
 
 *Discrete frequencies are shown as density steps, using each algorithm's own bin width of `1/B`; the dashed curves are an exact binomial reference. The visible range contains all nonzero observations. The reference describes an idealised independent-bit model, not a second measured run.*
 
@@ -83,7 +83,7 @@ An ideal independent-output-bit model has mean 0.5 and normalized standard devia
 
 ## Measured memory behaviour
 
-![Log-scale memory plots for MD5 and SHA-256 at 1,000, 10,000 and 100,000 trials. Retained-distance allocation grows from roughly 32–34 KiB to 1,582 KiB, while streaming allocation stays between approximately 16 and 19 KiB. All plotted values are recorded Python-allocation measurements.](docs/visuals/streaming-memory.svg)
+![Log-scale memory plots for MD5 and SHA-256 at 1,000, 10,000 and 100,000 trials. Retained-distance allocation grows from roughly 32–34 KiB to 1,582 KiB, while streaming allocation stays between approximately 16 and 19 KiB. All plotted values are recorded Python-allocation measurements.](docs/visuals/streaming-memory.png)
 
 A recorded SHA-256 run at 100,000 trials used **19,232 bytes** of peak traced Python allocation for streaming aggregation versus **1,620,074 bytes** for a retained-distance reference. At 1,000 trials, those values were 17,980 and 34,698 bytes. The storage improvement comes from replacing an expanding trial list with fixed bins and a few counters.
 
